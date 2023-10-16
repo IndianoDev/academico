@@ -13,7 +13,15 @@ function handleChange(valor, campo){
 }
 
 function salvar(){
-
+  AsyncStorage.getItem('cursos').then(resultado => {
+    const cursos = JSON.parse(resultado) || []
+    cursos.push (dados)
+    console.log(cursos)
+ 
+    AsyncStorage.setItem('cursos', JSON.stringify(cursos))
+ 
+    navigation.goBack()
+  })
 }
   return (
 

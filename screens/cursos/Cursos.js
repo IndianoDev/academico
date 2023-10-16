@@ -1,7 +1,17 @@
-import React from 'react'
-import { Button, Text } from 'react-native-paper'
+import React, { useEffect, useState } from 'react'
+import { Button, Text,  Card } from 'react-native-paper'
 
 const Cursos = ({navigation}) => {
+
+    const [curso, setCurso] = useState([])
+  
+    useEffect(() => {
+      AsyncStorage.getItem('cursos').then(resultado => {
+        resultado = JSON.parse(resultado) || []
+        setCurso(resultado)
+      })
+  }, [])
+  
   return (
     <>
     <Text>hello</Text>
@@ -12,6 +22,11 @@ const Cursos = ({navigation}) => {
     >
 Novo
     </Button>
+    {curso.map(item=>(
+     <Card style={{marginBottom: 10}}>
+      <Text>{item.nome}</Text>
+      </Card>
+    ))}
     </>
   )
 }
