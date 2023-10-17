@@ -1,12 +1,11 @@
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet,} from 'react-native';
 import { PaperProvider } from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import FilmesDetalhes from './screens/cursos/Cursos';
-import Cursos from './screens/cursos/Cursos';
 import CursosStack from './screens/cursos/CursosStack';
+import Alunos from './screens/alunos/Alunos';
+import Professores from './screens/professores/Professores';
 
 
 const Tab = createMaterialBottomTabNavigator();
@@ -23,7 +22,7 @@ export default function App() {
         options={{
       
           tabBarIcon: () => (
-            <MaterialCommunityIcons name="movie-open" size={26} />
+            <MaterialCommunityIcons name="book" size={26} />
           ),
         }}
       />
@@ -33,27 +32,27 @@ export default function App() {
         options={{
       
           tabBarIcon: () => (
-            <MaterialCommunityIcons name="movie-open" size={26} />
+            <MaterialCommunityIcons name="book-open-variant" size={26} />
           ),
         }}
       />
     <Tab.Screen
         name="Alunos"
-        component={CursosStack}
+        component={Alunos}
         options={{
       
           tabBarIcon: () => (
-            <MaterialCommunityIcons name="movie-open" size={26} />
+            <MaterialCommunityIcons name="badge-account-horizonta" size={26} />
           ),
         }}
       />
     <Tab.Screen
         name="Professores"
-        component={CursosStack}
+        component={Professores}
         options={{
       
           tabBarIcon: () => (
-            <MaterialCommunityIcons name="movie-open" size={26} />
+            <MaterialCommunityIcons name="account-multiple-outline" size={26} />
           ),
         }}
       />
@@ -63,7 +62,7 @@ export default function App() {
         options={{
       
           tabBarIcon: () => (
-            <MaterialCommunityIcons name="movie-open" size={26} />
+            <MaterialCommunityIcons name="google-classroom" size={26} />
           ),
         }}
       />
